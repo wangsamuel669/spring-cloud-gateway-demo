@@ -16,12 +16,15 @@ public class CustomRouteDefinitionLocator implements RouteDefinitionLocator {
         RouteDefinition routeDefinition = new RouteDefinition();
         routeDefinition.setId("1");
         routeDefinition.setOrder(-1);
-        routeDefinition.setUri(URI.create("http://192.168.1.2:18080"));
+//        routeDefinition.setUri(URI.create("http://192.168.1.2:18080"));
+        routeDefinition.setUri(URI.create("http://10.100.1.52:9200"));
         PredicateDefinition predicateDefinition = new PredicateDefinition("Path=/test");
         routeDefinition.getPredicates().add(predicateDefinition);
-        routeDefinition.getFilters().add(new FilterDefinition("AddRequestParameter=querylist, 13812345678"));
+        /*routeDefinition.getFilters().add(new FilterDefinition("AddRequestParameter=querylist, 13812345678"));
         routeDefinition.getFilters().add(new FilterDefinition("AddRequestHeader=Authorization, Basic bkRiRTNmQmIzSDN1WDh6WjUyREw6c25nNXQ5RExCWndydVZrUGk0VFRkQkU0NjliYlNZS0JYb2N1YTJVcg=="));
-        routeDefinition.getFilters().add(new FilterDefinition("SetPath=/mobile/location"));
+        routeDefinition.getFilters().add(new FilterDefinition("SetPath=/mobile/location"));*/
+        routeDefinition.getFilters().add(new FilterDefinition("SetPath=/"));
+//        routeDefinition.getFilters().add(new FilterDefinition("RedirectTo=302, http://10.100.1.190:9200"));
         return Flux.just(routeDefinition);
     }
 }
